@@ -22,7 +22,7 @@
 
 void start();
 void analyze();
-void turn(int roundScore);
+void turn(unsigned long long int roundScore);
 
 void upgradeMenu();
 void normUpg();

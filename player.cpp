@@ -26,7 +26,7 @@ void hit(){
 void stand(){
 }
 
-int checkHand(){
+unsigned long long int checkHand(){
     int sum = 0;
     std::cout << "Your Hand:" << std::endl;
     for (Card i: hand) {

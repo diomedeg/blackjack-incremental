@@ -17,7 +17,7 @@
 *******************************************************************************/
 #include "game.h"
 
-unsigned long long int goal = 10000000000000000000;
+unsigned long long int goal = 10000000000000000000ull;
 
 int main(){
     std::cout << "Welcome to Blackjack Incremental, an incremental game with the goal of reaching 10 quintillion points. Unlike typical Blackjack, there is no dealer here: " <<

@@ -21,6 +21,6 @@
 
 void hit();
 void stand();
-int checkHand();
+unsigned long long int checkHand();
 char choice();
 void resetHand();

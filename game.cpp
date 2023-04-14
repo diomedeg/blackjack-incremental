@@ -17,15 +17,15 @@
 *******************************************************************************/
 #include "game.h"
 
-unsigned long long int totalPoints = 0;
+unsigned long long int totalPoints = 0ull;
 int blackjack = 21;
-unsigned long long int blackjackPrice = 100;
+unsigned long long int blackjackPrice = 100ull;
 int normMult = 0;
-unsigned long long int normPrice = 10;
+unsigned long long int normPrice = 10ull;
 int jackpotMult = 1;
-unsigned long long int jackpotPrice = 10;
+unsigned long long int jackpotPrice = 10ull;
 int bustMult = 0;
-unsigned long long int bustPrice = 10;
+unsigned long long int bustPrice = 10ull;
 
 void start() {
     std::cout << "\nGame Start!" << std::endl;
@@ -39,7 +39,7 @@ void start() {
 unsigned long long int intPow(int base, int pow){
     if(pow == 0) return 1;
     
-    for (int i = 0; i < pow; i++){
+    for (int i = 1; i < pow; i++){
         base *= base;
     }
     return base;
@@ -47,19 +47,19 @@ unsigned long long int intPow(int base, int pow){
 
 void analyze(){
     std::cout << "\nComparing to Blackjack" << std::endl;
-    int roundScore = checkHand();
+    unsigned long long int roundScore = checkHand();
     if (roundScore == blackjack){
-        roundScore *= intPow(10, jackpotMult);
+        roundScore *= intPow(10ull, jackpotMult);
         totalPoints += roundScore;
         std::cout << "You've hit Blackjack for " << roundScore << " points." << std::endl;
     } else if (roundScore > blackjack) {
-        roundScore *= intPow(2, bustMult);
+        roundScore *= intPow(2ull, bustMult);
         totalPoints += roundScore;
         std::cout << "You've busted for " << roundScore << " points." << std::endl;
     } else turn(roundScore);
 }
 
-void turn(int roundScore){
+void turn(unsigned long long int roundScore){
     char c = ' ';
     while(c != 'H' && c != 'h' && c != 'S' && c != 's')
         c = choice();
@@ -67,7 +67,7 @@ void turn(int roundScore){
             hit();
             analyze();
         } else if (c == 'S' || c == 's'){
-            roundScore *= intPow(3, normMult);
+            roundScore *= intPow(3ull, normMult);
             totalPoints += roundScore;
             std::cout << "You've stood for " << roundScore << " points." << std::endl;
         } else if (c == 'U' || c == 'u'){
